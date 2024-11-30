@@ -1,0 +1,216 @@
+/* ====== Variables de Color ====== */
+:root {
+    --primary-color: #FF9900; /* Color naranja Amazon */
+    --background-light: #FFFFFF;
+    --background-dark: #181818;
+    --text-light: #000000;
+    --text-dark: #FFFFFF;
+    --card-light: #F3F3F3;
+    --card-dark: #282828;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+}
+
+.navbar a {
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+button, .btn {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover, .btn:hover {
+    background-color: #FFB833;
+}
+
+.product-card {
+    background-color: var(--card-light);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.product-card img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.product-info {
+    flex-grow: 1;
+}
+
+/* ====== Modo Oscuro ====== */
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .navbar {
+    background-color: #333333;
+}
+
+body.dark-mode .navbar a {
+    color: var(--text-light);
+}
+
+body.dark-mode .product-card {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode button, body.dark-mode .btn {
+    color: var(--text-light);
+}
+
+.toggle-dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-dark-mode:hover {
+    background-color: #444444;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--card-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container.dark-mode {
+    background-color: var(--card-dark);
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container button,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+.form-container button:hover {
+    background-color: #ffb833;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: var(--card-light);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.dark-mode-toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-left: 15px;
+}
+
+.dark-mode-toggle input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    transition: background-color 0.3s;
+}
+
+.toggle-ball {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+input:checked + .toggle-label {
+    background-color: #4b9cd3; 
+}
+
+input:checked + .toggle-label .toggle-ball {
+    transform: translateX(26px);
+}

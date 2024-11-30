@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Cart</h1>
+{% if items %}
+    <ul>
+        {% for item in items %}
+            <li>
+                <img src="{{ url_for('static', filename='uploads/' + item.book.image_file) }}" alt="Imagen de {{ item.book.title }}" width="50">
+                <p>{{ item.book.title }} por {{ item.book.author }}</p>
+                <p>Price: ${{ item.book.price }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Total: ${{ item.book.price * item.quantity }}</p>
+                <form action="{{ url_for('remove_from_cart', cart_id=item.id) }}" method="post">
+                    <button type="submit">Delete Cart</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <h3>Total Price: ${{ total }}</h3>
+{% else %}
+    <p>The cart is empty.</p>
+{% endif %}
+<a href="{{ url_for('index') }}">Continue shopping</a>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Products Available</h1>
+<div class="product-grid">
+    {% for book in books %}
+    <div class="product-card">
+        <img src="{{ url_for('static', filename='uploads/' + book.image_file) }}" alt="Image {{ book.title }}" width="150">
+        <p><strong>{{ book.title }}</strong> por {{ book.author }}</p>
+        <p>Price: ${{ book.price }}</p>
+        <form action="{{ url_for('add_to_cart', book_id=book.id) }}" method="post">
+            <button type="submit">Add to cart</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

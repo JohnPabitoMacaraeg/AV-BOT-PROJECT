@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Search</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.search.label }} {{ form.search(size=32) }}<br>
+    {{ form.submit() }}
+</form>
+<ul>
+    {% for book in books %}
+    <li>{{ book.title }} por {{ book.author }} - ${{ book.price }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
